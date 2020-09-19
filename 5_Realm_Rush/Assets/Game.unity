@@ -306,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 3852022116989626609, guid: d919deca03a34cc499314e2976b37ab1,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3852022116989626609, guid: d919deca03a34cc499314e2976b37ab1,
         type: 3}
@@ -357,11 +357,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5641243660344098358, guid: d919deca03a34cc499314e2976b37ab1,
-        type: 3}
-      propertyPath: gridSize
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5754956947280168658, guid: d919deca03a34cc499314e2976b37ab1,
         type: 3}
