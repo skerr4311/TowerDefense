@@ -6,10 +6,12 @@ using UnityEngine;
 public class PathFinder : MonoBehaviour
 {
     [SerializeField] WayPoint startWayPoint, endWayPoint;
+
     Dictionary<Vector2Int, WayPoint> grid = new Dictionary<Vector2Int, WayPoint>();
     Queue<WayPoint> queue = new Queue<WayPoint>();
     bool isRunning = true;
     WayPoint searchCenter;
+    List<WayPoint> path = new List<WayPoint>();
 
     Vector2Int[] directions = {
         Vector2Int.up,
@@ -17,16 +19,32 @@ public class PathFinder : MonoBehaviour
         Vector2Int.down,
         Vector2Int.left
     };
-    // Start is called before the first frame update
-    void Start()
+
+    public List<WayPoint> GetPath()
     {
         LoadBlocks();
         ColorStartAndEnd();
-        PathFind();
-        //ExploreNeighbours();
+        BreadthFirstSearch();
+        CreatePath();
+        return path;
     }
 
-    private void PathFind()
+    private void CreatePath()
+    {
+        path.Add(endWayPoint);
+        WayPoint previous = endWayPoint.exploredFrom;
+
+        while (previous != startWayPoint)
+        {
+            path.Add(previous);
+            previous = previous.exploredFrom;
+        }
+
+        path.Add(startWayPoint);
+        path.Reverse();
+    }
+
+    private void BreadthFirstSearch()
     {
         queue.Enqueue(startWayPoint);
         while(queue.Count > 0 && isRunning)
@@ -53,15 +71,11 @@ public class PathFinder : MonoBehaviour
         foreach(Vector2Int direction in directions)
         {
             Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
-            try
+            if (grid.ContainsKey(neighbourCoordinates))
             {
                 QueueNewNeighbours(neighbourCoordinates);
+            }
 
-            }
-            catch (Exception ex)
-            {
-                //do nothing
-            }
         }
     }
 
