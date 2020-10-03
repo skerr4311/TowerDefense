@@ -9,6 +9,7 @@ public class PathFinder : MonoBehaviour
     Dictionary<Vector2Int, WayPoint> grid = new Dictionary<Vector2Int, WayPoint>();
     Queue<WayPoint> queue = new Queue<WayPoint>();
     bool isRunning = true;
+    WayPoint searchCenter;
 
     Vector2Int[] directions = {
         Vector2Int.up,
@@ -28,36 +29,52 @@ public class PathFinder : MonoBehaviour
     private void PathFind()
     {
         queue.Enqueue(startWayPoint);
-        while(queue.Count > 0)
+        while(queue.Count > 0 && isRunning)
         {
-            var searchCenter = queue.Dequeue();
-            print(searchCenter);
-            HaltIfEndFound(searchCenter);
+            searchCenter = queue.Dequeue();
+            HaltIfEndFound();
+            ExploreNeighbours();
+            searchCenter.isExplored = true;
         }
     }
 
-    private void HaltIfEndFound(WayPoint searchCenter)
+    private void HaltIfEndFound()
     {
         if(searchCenter == endWayPoint)
         {
-            print("Stopping!");
             isRunning = false;
         }
     }
 
     private void ExploreNeighbours()
     {
+        if(!isRunning) { return; }
+
         foreach(Vector2Int direction in directions)
         {
-            Vector2Int explorationCoordinates = startWayPoint.GetGridPos() + direction;
-            try 
-            { 
-                grid[explorationCoordinates].SetTopColor(Color.blue);
-            } 
-            catch(Exception ex)
+            Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
+            try
+            {
+                QueueNewNeighbours(neighbourCoordinates);
+
+            }
+            catch (Exception ex)
             {
                 //do nothing
             }
+        }
+    }
+
+    private void QueueNewNeighbours(Vector2Int neighbourCoordinates)
+    {
+        WayPoint neighbour = grid[neighbourCoordinates];
+        if (neighbour.isExplored || queue.Contains(neighbour))
+        {
+            //do nothing
+        } else
+        {
+            queue.Enqueue(neighbour);
+            neighbour.exploredFrom = searchCenter;
         }
     }
 
