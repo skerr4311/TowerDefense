@@ -4688,6 +4688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1948602451}
+  - component: {fileID: 1948602452}
   m_Layer: 0
   m_Name: Enemies
   m_TagString: Untagged
@@ -4710,6 +4711,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1948602452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948602450}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 597dfffb72cebab40a25a87fb14ad7fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  secondsBetweenSpawn: 2
+  enemyPrefab: {fileID: 3552918983659815151, guid: 0898a1fe09db19f47aaec7e1fc430940,
+    type: 3}
 --- !u!4 &2027253718 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4781113678956835178, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
@@ -4896,7 +4912,7 @@ PrefabInstance:
     - target: {fileID: 8604343480224278588, guid: 0898a1fe09db19f47aaec7e1fc430940,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.77
       objectReference: {fileID: 0}
     - target: {fileID: 8604343480224278588, guid: 0898a1fe09db19f47aaec7e1fc430940,
         type: 3}
@@ -5124,11 +5140,6 @@ PrefabInstance:
       propertyPath: targetEnemy
       value: 
       objectReference: {fileID: 739497122}
-    - target: {fileID: 4781113678956835181, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
-        type: 3}
-      propertyPath: attackRange
-      value: 30
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2a672f42b438d4c8f786b6cc9118c0, type: 3}
 --- !u!114 &8826104933808712850
