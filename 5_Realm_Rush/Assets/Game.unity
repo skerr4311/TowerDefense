@@ -3022,7 +3022,7 @@ PrefabInstance:
     - target: {fileID: 4781113678956835178, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20
+      value: 50.6
       objectReference: {fileID: 0}
     - target: {fileID: 4781113678956835178, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
         type: 3}
@@ -5062,7 +5062,7 @@ PrefabInstance:
     - target: {fileID: 4781113678956835178, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 4781113678956835178, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
         type: 3}
@@ -5072,7 +5072,7 @@ PrefabInstance:
     - target: {fileID: 4781113678956835178, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -10
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4781113678956835178, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
         type: 3}
@@ -5124,6 +5124,11 @@ PrefabInstance:
       propertyPath: targetEnemy
       value: 
       objectReference: {fileID: 739497122}
+    - target: {fileID: 4781113678956835181, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
+        type: 3}
+      propertyPath: attackRange
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e2a672f42b438d4c8f786b6cc9118c0, type: 3}
 --- !u!114 &8826104933808712850
