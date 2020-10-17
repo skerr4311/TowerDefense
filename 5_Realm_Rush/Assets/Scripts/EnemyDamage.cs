@@ -34,6 +34,9 @@ public class EnemyDamage : MonoBehaviour
     {
         var sfx = Instantiate(deathParticlePrefab, transform.position, Quaternion.identity);
         sfx.Play();
+        float deathDuration = sfx.main.duration;
+
+        Destroy(sfx.gameObject, deathDuration);
         Destroy(gameObject);
     }
 }
