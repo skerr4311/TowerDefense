@@ -4723,7 +4723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 597dfffb72cebab40a25a87fb14ad7fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetweenSpawn: 2
+  secondsBetweenSpawn: 4
   enemyPrefab: {fileID: 3552918983659815151, guid: 0898a1fe09db19f47aaec7e1fc430940,
     type: 3}
 --- !u!4 &2027253718 stripped
@@ -5068,6 +5068,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isExplored: 0
   exploredFrom: {fileID: 0}
+  isPlaceable: 1
 --- !u!1001 &4781113678353816086
 PrefabInstance:
   m_ObjectHideFlags: 0
