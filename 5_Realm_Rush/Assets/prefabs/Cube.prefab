@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 8376762382632000663}
   - component: {fileID: 8764619616690773775}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: 0,0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -249,6 +249,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isExplored: 0
   exploredFrom: {fileID: 0}
+  isPlaceable: 1
+  towerPrefab: {fileID: 4781113678956835181, guid: 4e2a672f42b438d4c8f786b6cc9118c0,
+    type: 3}
 --- !u!65 &8764619616690773775
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -261,7 +264,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: -5, z: 5}
+  m_Center: {x: 0, y: -5, z: 0}
 --- !u!1001 &706023114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -283,7 +286,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4501762900964862, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4501762900964862, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
       propertyPath: m_LocalRotation.x
