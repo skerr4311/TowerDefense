@@ -7,6 +7,10 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] float movementPeriod = .5f;
     [SerializeField] ParticleSystem goalParticle;
+    [SerializeField] float movementSpeed = 1;
+
+    Vector3 movementTarget;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,12 +21,28 @@ public class EnemyMovement : MonoBehaviour
 
     IEnumerator FollowPath(List<WayPoint> path)
     {
-        foreach (WayPoint wayPoint in path)
+        foreach (WayPoint waypoint in path)
         {
-            transform.position = wayPoint.transform.position;
+            movementTarget = waypoint.transform.position;
             yield return new WaitForSeconds(movementPeriod);
         }
+
+        //finished, goal reached
         SelfDestruct();
+        //Play Goal Particles
+    }
+
+    private void Update()
+    {
+        FollowPath();
+    }
+
+    private void FollowPath()
+    {
+        //move towards next waypoint smoothly, at constant speed
+        float step = movementSpeed * Time.deltaTime;
+
+        transform.position = Vector3.MoveTowards(transform.position, movementTarget, step);
     }
 
     private void SelfDestruct()
